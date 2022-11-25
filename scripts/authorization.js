@@ -4,7 +4,7 @@ const username = document.getElementById('name');
 const password = document.getElementById('password');
 const errorElement = document.getElementById('error');
 
-const pathIfRequestIsSuccessful = '../game/index.html';
+const pathIfRequestIsSuccessful = '../templates/game.html';
 
 form.addEventListener('submit', (e) => {
     if (localStorage.getItem(username.value) == password.value) {
