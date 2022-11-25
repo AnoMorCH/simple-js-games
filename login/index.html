@@ -1,40 +1,54 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <title>Тренируй свое внимание</title>
   </head>
+
   <body>
-    <p>"Тренируй свое внимание".</p>
+    <main>
+      <div class="container">
+        <h1><div>Тренируй свое внимание</div></h1>
 
-    <p>
-      Игра нацелена на повышение концентрации. Она разбита на три мини-игры.
-      Побеждает тот, кто наберет больше всего баллов. Успехов!
-    </p>
+        <p>
+          Игра нацелена на повышение концентрации. Она разбита на три мини-игры.
+          Побеждает тот, кто наберет больше всего баллов.
+        </p>
 
-    <p>
-      Для входа введите существующий логин и пароль или придумайте новый
-      аккаунт.
-    </p>
+        <p>
+          Для входа введите существующий логин и пароль или придумайте новый
+          аккаунт.
+        </p>
 
-    <div id="error"></div>
+        <form action="game.html" id="login-form" method="get">
+          <div>
+            <input type="text" id="name" placeholder="Имя" required />
+          </div>
 
-    <form action="game.html" id="login-form" method="get">
-      <div>
-        <label for="name">Имя пользователя:</label>
-        <input type="text" id="name" placeholder="Имя" required />
+          <div>
+            <input
+              type="password"
+              id="password"
+              placeholder="Пароль"
+              required
+            />
+          </div>
+
+          <button type="submit" id="sumbit-btn">Подтвердить</button>
+
+          <div id="error"></div>
+        </form>
       </div>
-
-      <div>
-        <label for="password">Пароль:</label>
-        <input type="password" id="password" placeholder="Пароль" required />
-      </div>
-
-      <button type="submit" id="sumbit-btn">Подтвердить</button>
-    </form>
+    </main>
 
     <script src="authorization.js"></script>
   </body>
