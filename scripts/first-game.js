@@ -82,10 +82,6 @@ function getNonRepeatedRandomInt(min, max, usedColorIndexes) {
 function isAnswerCorrect(answer) {
     const correctAnswer = playboxWord.style.color;
     answer = colorsDict[answer.value.toLowerCase()];
-
-    console.log(correctAnswer);
-    console.log(answer);
-
     return correctAnswer == answer;
 }
 
