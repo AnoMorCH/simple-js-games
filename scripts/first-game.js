@@ -53,11 +53,28 @@ form.addEventListener('submit', (e) => {
 });
 
 const stayBtn = document.getElementById('first-stay');
-const moveBtn = document.getElementById('first-move');
 
 stayBtn.addEventListener('click', () => {
     hidePopup();
 });
+
+const moveBtn = document.getElementById('first-move');
+const moveBtnForm = document.getElementById('first-move-in-form');
+
+moveBtn.addEventListener('click', () => { 
+    moveToSecondGame();
+    hidePopup();
+});
+
+moveBtnForm.addEventListener('click', () => { moveToSecondGame(); });
+
+function moveToSecondGame() {
+    const task1 = document.getElementById('task1');
+    const task2 = document.getElementById('task2');
+
+    task1.style.display = 'none';
+    task2.style.display = 'block';
+}
 
 function showNextButton() {
     const nextButton = document.getElementById('first-move-in-form');

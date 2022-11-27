@@ -20,7 +20,8 @@ main {
 }
 
 /* 2. First Game */
-#task1 {
+#task1,
+#task2 {
   width: 80vw;
 }
 
@@ -91,6 +92,11 @@ main {
 
 #first-btn:hover {
   cursor: pointer;
+}
+
+/* 3. Second Game */
+#task2 {
+  display: none;
 }
 
 /* x. Popup */

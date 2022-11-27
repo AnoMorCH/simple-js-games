@@ -83,6 +83,75 @@
           </div>
         </div>
       </div>
+
+      <div id="task2">
+        <div class="description">
+          <h2>1. Определить цвет надписи</h2>
+          <p>Какой цвет имеет надпись на рисунке слева?</p>
+        </div>
+
+        <div class="flexbox-container">
+          <div class="first-game-wrapper">
+            <div id="first-game">
+              <div id="first-game-word"></div>
+            </div>
+          </div>
+
+          <div id="first-conditions" class="conditions">
+            <form action="" method="get">
+              <p>Выберите цвет</p>
+
+              <div>
+                <input type="radio" id="red" name="colors" value="Красный" />
+                <label for="red">Красный</label>
+              </div>
+
+              <div>
+                <input type="radio" id="orange" name="colors" value="Оранжевый" />
+                <label for="orange">Оранжевый</label>
+              </div>
+
+              <div>
+                <input type="radio" id="yellow" name="colors" value="Желтый" />
+                <label for="yellow">Желтый</label>
+              </div>
+
+              <div>
+                <input type="radio" id="green" name="colors" value="Зеленый" />
+                <label for="green">Зеленый</label>
+              </div>
+
+              <div>
+                <input type="radio" id="blue" name="colors" value="Голубой" />
+                <label for="blue">Голубой</label>
+              </div>
+
+              <div>
+                <input type="radio" id="dark-blue" name="colors" value="Синий" />
+                <label for="dark-blue">Синий</label>
+              </div>
+
+              <div>
+                <input type="radio" id="purple" name="colors" value="Фиолетовый" />
+                <label for="purple">Фиолетовый</label>
+              </div>
+
+              <button type="submit" id="first-btn">Выбрать</button>
+            </form>
+
+            <div>
+              <p>Правильный ответ: +5 баллов</p>
+              <p>Неправильный ответ: -2 балла</p>
+            </div>
+            
+            <p>Результат: <span id="first-counter"></span></p>
+
+            <button id="first-move-in-form">
+              Следующий уровень
+            </button>
+          </div>
+        </div>
+      </div>
     </main>
 
     <div id="popup1" class="overlay overlay-hidden">
@@ -91,7 +160,7 @@
         <a class="close" href="#">&times;</a>
         <div class="content">
           <p>
-            Вы набрали необходимое количество баллво для перехода на слдеующий
+            Вы набрали необходимое количество баллов для перехода на следующий
             уровень!
           </p>
           <p>
