@@ -76,11 +76,37 @@
             </div>
             
             <p>Результат: <span id="first-counter"></span></p>
+
+            <button id="first-move-in-form">
+              Следующий уровень
+            </button>
           </div>
         </div>
       </div>
     </main>
 
+    <div id="popup1" class="overlay overlay-hidden">
+      <div class="popup">
+        <h2>Поздравляем!</h2>
+        <a class="close" href="#">&times;</a>
+        <div class="content">
+          <p>
+            Вы набрали необходимое количество баллво для перехода на слдеующий
+            уровень!
+          </p>
+          <p>
+            Вы можете продолжить игру, если хотите побить рекорд других 
+            игроков.
+          </p>
+        </div>
+        <div class="popup-btns">
+          <button id="first-stay">Остаться</button>
+          <button id="first-move">Следующий уровень</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../scripts/popup.js"></script>
     <script src="../scripts/first-game.js"></script>
   </body>
 </html>

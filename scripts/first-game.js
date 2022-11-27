@@ -28,12 +28,19 @@ resetColors();
 const choices = document.getElementsByName('colors');
 const form = document.getElementById('first-conditions');
 
+let hasPopupBeenShown = false;
+
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     choices.forEach((choice) => {
         if (choice.checked) {
             if (isAnswerCorrect(choice)) {
                 count += pointsForCorrectAnswer;
+
+                if (isThereEnoughPointsToShowPopupOnce(count, hasPopupBeenShown)) {
+                    showPopup();
+                    hasPopupBeenShown = true;
+                }
             } else {
                 count += pointsForWrongAnswer;
             }
@@ -43,6 +50,18 @@ form.addEventListener('submit', (e) => {
         }
     });
 });
+
+const stayBtn = document.getElementById('first-stay');
+const moveBtn = document.getElementById('first-move');
+
+stayBtn.addEventListener('click', () => {
+    hidePopup();
+});
+
+function isThereEnoughPointsToShowPopupOnce(points, hasPopupBeenShown) {
+    const enoughPointsScore = 15;
+    return points >= enoughPointsScore && !hasPopupBeenShown;
+}
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -63,6 +82,10 @@ function getNonRepeatedRandomInt(min, max, usedColorIndexes) {
 function isAnswerCorrect(answer) {
     const correctAnswer = playboxWord.style.color;
     answer = colorsDict[answer.value.toLowerCase()];
+
+    console.log(correctAnswer);
+    console.log(answer);
+
     return correctAnswer == answer;
 }
 

@@ -1,3 +1,8 @@
+/* 1. General */
+/* 2. First Game */
+/* x. Popup */
+
+/* 1. General */
 * {
   padding: 0;
   margin: 0;
@@ -14,6 +19,7 @@ main {
   margin-right: auto;
 }
 
+/* 2. First Game */
 #task1 {
   width: 80vw;
 }
@@ -58,10 +64,93 @@ main {
   align-items: center;
 }
 
-#first-conditions > form > button {
+.popup-btns {
+  display: flex;
+  justify-content: space-around;
+}
+
+#first-btn,
+#first-move-in-form, 
+.popup-btns > button {
   padding: 1vh 1vw;
   margin-top: 1vh;
   font-weight: bold;
   border-radius: 5%;
   font-size: 1vw;
+}
+
+.popup-btns > button:hover,
+#first-move-in-form:hover {
+  cursor: pointer;
+  background-color: rgb(144, 238, 144);
+}
+
+#first-btn:hover {
+  cursor: pointer;
+}
+
+/* x. Popup */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+}
+
+.overlay-hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay-shown {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  margin: auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  padding-bottom: 2vh;
+  color: #333;
+}
+
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.popup .close:hover {
+  color: rgb(144, 238, 144);
+}
+
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+.popup .content p {
+  padding-bottom: 0.5vh;
+  padding-top: 0.5vh;
 }
