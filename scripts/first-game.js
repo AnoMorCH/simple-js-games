@@ -37,8 +37,9 @@ form.addEventListener('submit', (e) => {
             if (isAnswerCorrect(choice)) {
                 count += pointsForCorrectAnswer;
 
-                if (isThereEnoughPointsToShowPopupOnce(count, hasPopupBeenShown)) {
+                if (isThereEnoughPointsToShowPopup(count) && !hasPopupBeenShown) {
                     showPopup();
+                    showNextButton();
                     hasPopupBeenShown = true;
                 }
             } else {
@@ -58,9 +59,14 @@ stayBtn.addEventListener('click', () => {
     hidePopup();
 });
 
-function isThereEnoughPointsToShowPopupOnce(points, hasPopupBeenShown) {
+function showNextButton() {
+    const nextButton = document.getElementById('first-move-in-form');
+    nextButton.style.display = 'block';
+}
+
+function isThereEnoughPointsToShowPopup(points) {
     const enoughPointsScore = 15;
-    return points >= enoughPointsScore && !hasPopupBeenShown;
+    return points >= enoughPointsScore;
 }
 
 function getRandomInt(min, max) {

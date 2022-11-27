@@ -79,6 +79,10 @@ main {
   font-size: 1vw;
 }
 
+#first-move-in-form {
+  display: none;
+}
+
 .popup-btns > button:hover,
 #first-move-in-form:hover {
   cursor: pointer;
