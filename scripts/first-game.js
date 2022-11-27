@@ -26,7 +26,7 @@ const playboxWord = document.getElementById('first-game-word');
 resetColors();
 
 const choices = document.getElementsByName('colors');
-const form = document.getElementById('first-conditions');
+const form = document.getElementsByClassName('conditions')[0];
 
 let hasPopupBeenShown = false;
 

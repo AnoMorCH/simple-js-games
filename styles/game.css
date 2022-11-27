@@ -19,13 +19,11 @@ main {
   margin-right: auto;
 }
 
-/* 2. First Game */
-#task1,
-#task2 {
+.task {
   width: 80vw;
 }
 
-#task1 > .description {
+.task > .description {
   font-size: 1.25vw;
   text-align: center;
 }
@@ -35,27 +33,29 @@ main {
   justify-content: center;
 }
 
-.first-game-wrapper {
-  margin-right: 2.5vw;
-}
-
-#first-game,
-#first-conditions {
+.game-wrapper,
+.conditions {
   margin: 1vw;
 }
 
-#first-conditions {
+.conditions {
   font-size: 1.25vw;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 
-#first-game {
+#first-game,
+#second-game {
   width: 28vw;
   height: 28vw;
   font-size: 3vw;
   font-weight: bolder;
+}
+
+/* 2. First Game */
+#task1 {
+  display: none;
 }
 
 #first-game-word {
@@ -96,7 +96,7 @@ main {
 
 /* 3. Second Game */
 #task2 {
-  display: none;
+  display: block;
 }
 
 /* x. Popup */
