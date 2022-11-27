@@ -1,12 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    хуй
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/game.css" />
+    <title>Игра</title>
+  </head>
+  <body>
+    <main>
+      <div id="task1">
+        <h2>1. Определить цвет надписи</h2>
+        <p>
+          Какой цвет имеет надпись, изображенная на рисунке слева.
+        </p>
+        <div class="flexbox-container">
+          <div id="first-game" class="game">
+            <div id="first-game-word">СИНИЙ</div> 
+          </div>
+          <div id="first-conditions" class="conditions">
+            <form action="">
+              <p>Выберите цвет</p>
+              <div>
+                <label>
+                  <input type="radio" name="radio" id="first-first" />
+                  Синий
+                </label>
+              </div>
+              <div>
+                <label>
+                  <input type="radio" name="radio" id="first-second" />
+                  Красный
+                </label>
+              </div>
+              <div>
+                <label>
+                  <input type="radio" name="radio" id="first-third" />
+                  Зеленый
+                </label>
+              </div>
+              <div>
+                <label>
+                  <input type="radio" name="radio" id="first-fourth" />
+                  Фиолетовый
+                </label>
+              </div>
+              <div>
+                <input type="submit">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="../scripts/first-game.js"></script>
+  </body>
 </html>
