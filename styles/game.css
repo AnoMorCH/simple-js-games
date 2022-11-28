@@ -70,7 +70,7 @@ main {
 
 /* 2. First Game */
 #task1 {
-  display: none;
+  display: black;
 }
 
 #first-game-word {
@@ -97,7 +97,7 @@ main {
 
 /* 3. Second Game */
 #task2 {
-  display: block;
+  display: none;
 }
 
 .ball,

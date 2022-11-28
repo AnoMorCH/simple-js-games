@@ -11,7 +11,58 @@ const colorsDict = {
     'фиолетовый': 'rgba(197, 69, 250, 0.8)'
 }
 
+const colorsDictLength = Object.keys(colorsDict).length;
+
 setPointsBrief();
+setupMoveFormsBtn();
+
+const stayBtn = document.getElementById('stay');
+
+stayBtn.addEventListener('click', () => {
+    hidePopup();
+});
+
+const movePopup = document.getElementById('move-popup');
+
+movePopup.addEventListener('click', () => {
+    hidePopup();
+});
+
+function isScoreEnoughToShowPopup(count, enough) {
+    return count >= enough;
+}
+
+function showNextButton(nextButtonId) {
+    const nextButton = document.getElementById(nextButtonId);
+    nextButton.style.display = 'block';
+}
+
+function setupMoveBtn(nextTaskNumber) {
+    const moveBtn = document.getElementById('move-popup');
+
+    moveBtn.addEventListener('click', () => {
+        moveToNextGame(nextTaskNumber);
+        hidePopup;
+    });
+}
+
+function setupMoveFormsBtn() {
+    const moveBtnsForm = document.getElementsByClassName('move');
+
+    for (let i = 0; i < moveBtnsForm.length; i++) {
+        moveBtnsForm[i].addEventListener('click', () => {
+            moveToNextGame(i + 2);
+        });
+    }
+}
+
+function moveToNextGame(nextGameNumber) {
+    const currentGame = document.getElementById(`task${nextGameNumber - 1}`);
+    const nextGame = document.getElementById(`task${nextGameNumber}`);
+
+    currentGame.style.display = 'none';
+    nextGame.style.display = 'block';
+}
 
 function getResetedColorsList(requiredColorsAmount, colorsDictLength) {
     let randomIndexes = [];
@@ -54,6 +105,6 @@ function setPointsBrief() {
 
     for (let i = 0; i < pointsElementsAmount; i++) {
         correctPoints[i].innerText = pointsForCorrectAnswer;
-        wrongPoints[i].innerText = pointsForWrongAnswer;  
+        wrongPoints[i].innerText = pointsForWrongAnswer;
     }
 }

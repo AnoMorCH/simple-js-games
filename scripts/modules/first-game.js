@@ -1,32 +1,33 @@
 function firstGame() {
-    const colorsDictLength = Object.keys(colorsDict).length;
-
     const counter = document.getElementById('first-counter');
     let count = 0;
     counter.innerText = count;
-
+    
+    let hasPopupBeenShown = false;
     const requiredColorsAmount = 3;
 
     const playbox = document.getElementById('first-game');
     const playboxWord = document.getElementById('first-game-word');
-
-    setResetedColors(requiredColorsAmount, colorsDictLength);
-
     const choices = document.getElementsByName('colors');
     const form = document.getElementsByClassName('conditions')[0];
-
-    let hasPopupBeenShown = false;
+    
+    setResetedColors(requiredColorsAmount, colorsDictLength);
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
+
         choices.forEach((choice) => {
             if (choice.checked) {
                 if (isAnswerCorrect(choice)) {
                     count += pointsForCorrectAnswer;
 
-                    if (isThereEnoughPointsToShowPopup(count) && !hasPopupBeenShown) {
+                    if (
+                        isScoreEnoughToShowPopup(count, 15) &&
+                        !hasPopupBeenShown
+                    ) {
                         showPopup();
-                        showNextButton();
+                        setupMoveBtn(2);
+                        showNextButton('first-move-in-form');
                         hasPopupBeenShown = true;
                     }
                 } else {
@@ -39,47 +40,20 @@ function firstGame() {
         });
     });
 
-    const stayBtn = document.getElementById('stay');
-
-    stayBtn.addEventListener('click', () => {
-        hidePopup();
-    });
-
-    const moveBtn = document.getElementById('first-move');
-    const moveBtnForm = document.getElementById('first-move-in-form');
-
-    moveBtn.addEventListener('click', () => {
-        moveToSecondGame();
-        hidePopup();
-        moveBtn.id = 'second-move';
-    });
-
-    moveBtnForm.addEventListener('click', () => { moveToSecondGame(); });
-
-    function moveToSecondGame() {
-        const task1 = document.getElementById('task1');
-        const task2 = document.getElementById('task2');
-
-        task1.style.display = 'none';
-        task2.style.display = 'block';
-    }
-
-    function showNextButton() {
-        const nextButton = document.getElementById('first-move-in-form');
-        nextButton.style.display = 'block';
-    }
-
-    function isThereEnoughPointsToShowPopup(points) {
-        const enoughPointsScore = 15;
-        return points >= enoughPointsScore;
-    }
-
     function setResetedColors(requiredColorsAmount, colorsDictLength) {
-        const randomIndexes = getResetedColorsList(requiredColorsAmount, colorsDictLength);
+        const randomIndexes = getResetedColorsList(
+            requiredColorsAmount,
+            colorsDictLength
+        );
 
-        playbox.style.backgroundColor = Object.values(colorsDict)[randomIndexes[0]];
-        playboxWord.style.color = Object.values(colorsDict)[randomIndexes[1]];
-        playboxWord.innerText = Object.keys(colorsDict)[randomIndexes[2]].toUpperCase();
+        playbox.style.backgroundColor =
+            Object.values(colorsDict)[randomIndexes[0]];
+
+        playboxWord.style.color =
+            Object.values(colorsDict)[randomIndexes[1]];
+
+        playboxWord.innerText =
+            Object.keys(colorsDict)[randomIndexes[2]].toUpperCase();
     }
 
     function isAnswerCorrect(answer) {
