@@ -39,7 +39,7 @@ function firstGame() {
         });
     });
 
-    const stayBtn = document.getElementById('first-stay');
+    const stayBtn = document.getElementById('stay');
 
     stayBtn.addEventListener('click', () => {
         hidePopup();
@@ -51,6 +51,7 @@ function firstGame() {
     moveBtn.addEventListener('click', () => {
         moveToSecondGame();
         hidePopup();
+        moveBtn.id = 'second-move';
     });
 
     moveBtnForm.addEventListener('click', () => { moveToSecondGame(); });

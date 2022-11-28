@@ -15,6 +15,8 @@ let usedColorsAmount = 0;
 let wantedColorId = null;
 let wantedColorName = null;
 
+let hasPopupBeenShown = false;
+
 updateConditionColorData();
 
 createMovingFigure('ball', figureAmount);
@@ -43,6 +45,11 @@ function checkChoosenFigure(figureId) {
         foundFiguresAmount += 1;
         choosenFigure.style.display = 'none';
 
+        if (isScoreEnoughToShowPopup() && !hasPopupBeenShown) {
+            hasPopupBeenShown = true;
+            showPopup();
+        }
+
         if (isFoundEnoughFiguresToChangeConditions(foundFiguresAmount)) {
             foundFiguresAmount = 0;
             updateConditionColorData();
@@ -55,6 +62,11 @@ function checkChoosenFigure(figureId) {
     function isFoundEnoughFiguresToChangeConditions(foundFiguresAmount) {
         const enoughFigures = 2;
         return foundFiguresAmount == enoughFigures;
+    }
+
+    function isScoreEnoughToShowPopup() {
+        const enoughScore = 15;
+        return count >= enoughScore;
     }
 }
 
