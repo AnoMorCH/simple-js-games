@@ -99,6 +99,39 @@ main {
   display: block;
 }
 
+.ball,
+.rectangle {
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  background-color: black;
+}
+
+.ball {
+  border-radius: 50%;
+}
+
+@keyframes bounceX {
+  from {
+    transform: translateX(0);
+  }
+  
+  to {
+    transform: translateX(26vw);
+  }
+}
+
+@keyframes bounceY {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(26vw);
+  }
+}
+
+
 /* x. Popup */
 
 .overlay {

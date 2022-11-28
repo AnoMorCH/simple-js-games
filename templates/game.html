@@ -71,8 +71,16 @@
             </form>
 
             <div>
-              <p>Правильный ответ: +5 баллов</p>
-              <p>Неправильный ответ: -2 балла</p>
+              <p>
+                Правильный ответ: 
+                +<span class="correct-point"></span> 
+                баллов
+              </p>
+              <p>
+                Неправильный ответ: 
+                <span class="incorrect-point"></span> 
+                балла
+              </p>
             </div>
             
             <p>Результат: <span id="first-counter"></span></p>
@@ -95,14 +103,21 @@
 
         <div class="flexbox-container">
           <div class="game-wrapper">
-            <div id="second-game">
-            </div>
+            <div id="second-game"></div>
           </div>
 
           <div class="conditions">
             <div>
-              <p>Правильный ответ: +5 баллов</p>
-              <p>Неправильный ответ: -2 балла</p>
+              <p>
+                Правильный ответ: 
+                +<span class="correct-point"></span> 
+                баллов
+              </p>
+              <p>
+                Неправильный ответ: 
+                <span class="incorrect-point"></span> 
+                балла
+              </p>
             </div>
             
             <p>Результат: <span id="second-counter"></span></p>
@@ -135,6 +150,8 @@
     </div>
 
     <script src="../scripts/popup.js"></script>
-    <script src="../scripts/first-game.js"></script>
+    <script src="../scripts/games.js"></script>
+    <script type="module" src="../scripts/main-script.js"></script>
+    <script src="../scripts/second-game.js"></script>
   </body>
 </html>
