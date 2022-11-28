@@ -1,11 +1,11 @@
-const colorsDictLength = Object.keys(colorsDict).length;
 
 const counter = document.getElementById('second-counter');
 let count = 0;
 counter.innerText = count;
 
 const figureAmount = 3;
-
+let foundFiguresAmount = 0;
+const colorsDictLength = Object.keys(colorsDict).length;
 const randomIndexes = getResetedColorsList(figureAmount + 1, colorsDictLength);
 
 const playbox = document.getElementById('second-game');
@@ -20,8 +20,6 @@ updateConditionColorData();
 createMovingFigure('ball', figureAmount);
 createMovingFigure('rectangle', figureAmount);
 setResetedColors(figureAmount + 1, colorsDictLength);
-
-let foundFiguresAmount = 0;
 
 for (let i = 0; i < figureAmount; i++) {
     playbox.children[i].children[0].addEventListener(
