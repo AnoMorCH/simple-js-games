@@ -4,17 +4,25 @@ const counter = document.getElementById('second-counter');
 let count = 0;
 counter.innerText = count;
 
-const playbox = document.getElementById('second-game');
-
 const figureAmount = 6;
+
+const randomIndexes = getResetedColorsList(figureAmount + 1, colorsDictLength);
+
+const playbox = document.getElementById('second-game');
+const conditionColor = document.getElementsByClassName('color-condition');
+const wantedColorId = randomIndexes[1];
+const wantedColorName = Object.keys(colorsDict)[wantedColorId]; 
+
 createMovingFigure('ball', figureAmount);
 createMovingFigure('rectangle', figureAmount);
 setResetedColors(figureAmount + 1, colorsDictLength);
 
-function setResetedColors(requiredColorsAmount, colorsDictLength) {
-    const randomIndexes = getResetedColorsList(requiredColorsAmount, colorsDictLength);
-
+function setResetedColors() {
     playbox.style.backgroundColor = Object.values(colorsDict)[randomIndexes[0]];
+
+    Array.from(conditionColor).forEach((element) => {
+        element.innerText = wantedColorName;
+    });
 
     for (let i = 0; i < figureAmount; i++) {
         playbox.children[i].children[0].style.backgroundColor =

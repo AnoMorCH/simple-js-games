@@ -1,7 +1,6 @@
 const pointsForCorrectAnswer = 5;
 const pointsForWrongAnswer = -2;
 
-let randomIndexes = [];
 
 const colorsDict = {
     'красный': 'rgba(250, 69, 69, 0.8)',
@@ -16,6 +15,8 @@ const colorsDict = {
 setPointsBrief();
 
 function getResetedColorsList(requiredColorsAmount, colorsDictLength) {
+    let randomIndexes = [];
+
     randomIndexes.splice(0, randomIndexes.length);
 
     for (let i = 0; i < requiredColorsAmount; i++) {
