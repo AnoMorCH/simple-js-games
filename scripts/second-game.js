@@ -35,6 +35,29 @@ for (let i = 0; i < figureAmount; i++) {
     );
 }
 
+const moveBtn = document.getElementById('second-move');
+const moveBtnForm = document.getElementById('second-move-in-form');
+
+moveBtn.addEventListener('click', () => {
+    hidePopup();
+    moveToThirdGame();
+});
+
+moveBtnForm.addEventListener('click', () => { moveToThirdGame(); });
+
+function showNextButton() {
+    const nextButton = document.getElementById('second-move-in-form');
+    nextButton.style.display = 'block';
+}
+
+function moveToThirdGame() {
+    const task2 = document.getElementById('task2');
+    const task3 = document.getElementById('task3');
+
+    task2.style.display = 'none';
+    task3.style.display = 'block';
+}
+
 function checkChoosenFigure(figureId) {
     const choosenFigure = playbox.children[figureId].children[0];
     const figureColorId = choosenFigure.getAttribute('value');
@@ -48,9 +71,13 @@ function checkChoosenFigure(figureId) {
         if (isScoreEnoughToShowPopup() && !hasPopupBeenShown) {
             hasPopupBeenShown = true;
             showPopup();
+            showNextButton();
         }
 
-        if (isFoundEnoughFiguresToChangeConditions(foundFiguresAmount)) {
+        if (
+            !isScoreMax() &&
+            isFoundEnoughFiguresToChangeConditions(foundFiguresAmount)
+        ) {
             foundFiguresAmount = 0;
             updateConditionColorData();
         }
@@ -67,6 +94,11 @@ function checkChoosenFigure(figureId) {
     function isScoreEnoughToShowPopup() {
         const enoughScore = 15;
         return count >= enoughScore;
+    }
+
+    function isScoreMax() {
+        const maxScore = figureAmount * pointsForCorrectAnswer * 2;
+        return count == maxScore;
     }
 }
 

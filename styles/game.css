@@ -53,6 +53,21 @@ main {
   font-weight: bolder;
 }
 
+#first-move-in-form,
+#second-move-in-form {
+  display: none;
+}
+
+#first-btn,
+.move, 
+.popup-btns > button {
+  padding: 1vh 1vw;
+  margin-top: 1vh;
+  font-weight: bold;
+  border-radius: 5%;
+  font-size: 1vw;
+}
+
 /* 2. First Game */
 #task1 {
   display: none;
@@ -70,22 +85,8 @@ main {
   justify-content: space-around;
 }
 
-#first-btn,
-#first-move-in-form, 
-.popup-btns > button {
-  padding: 1vh 1vw;
-  margin-top: 1vh;
-  font-weight: bold;
-  border-radius: 5%;
-  font-size: 1vw;
-}
-
-#first-move-in-form {
-  display: none;
-}
-
 .popup-btns > button:hover,
-#first-move-in-form:hover {
+.move:hover {
   cursor: pointer;
   background-color: rgb(144, 238, 144);
 }
@@ -131,6 +132,10 @@ main {
   }
 }
 
+/* 4. Third Game */
+#task3 {
+  display: none;
+}
 
 /* x. Popup */
 
