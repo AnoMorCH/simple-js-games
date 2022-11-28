@@ -1,7 +1,6 @@
 const pointsForCorrectAnswer = 5;
 const pointsForWrongAnswer = -2;
 
-
 const colorsDict = {
     'красный': 'rgba(250, 69, 69, 0.8)',
     'оранжевый': 'rgba(250, 155, 69, 0.8)',
