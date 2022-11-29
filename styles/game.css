@@ -45,8 +45,10 @@ main {
   justify-content: space-around;
 }
 
+/* TODO. Make it as the one class */
 #first-game,
-#second-game {
+#second-game,
+#third-game {
   width: 28vw;
   height: 28vw;
   font-size: 3vw;
@@ -70,7 +72,7 @@ main {
 
 /* 2. First Game */
 #task1 {
-  display: black;
+  display: none;
 }
 
 #first-game-word {
@@ -134,7 +136,22 @@ main {
 
 /* 4. Third Game */
 #task3 {
-  display: none;
+  display: block;
+}
+
+#basket {
+  margin-top: 1vw;
+  border: 0.25vw solid black;
+  width: 28vw;
+  height: 7vw;
+}
+
+#basket > legend {
+  font-size: 1.25rem;
+  font-weight: bolder;
+  padding-left: 0.5vw;
+  margin-left: 0.5vw;
+  padding-right: 0.5vw;
 }
 
 /* x. Popup */

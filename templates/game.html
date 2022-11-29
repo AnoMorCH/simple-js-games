@@ -11,6 +11,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../styles/game.css" />
+    <script src="../scripts/popup.js" defer></script>
+    <script src="../scripts/games.js" defer></script>
+    <script type="module" src="../scripts/main-script.js" defer></script>
     <title>Игра</title>
   </head>
   <body>
@@ -135,13 +138,45 @@
       <div class="task" id="task3">
         <div class="description">
           <h2>
-            3. Task 3
-            <span class="color-condition"></span>
+            3. Перетащить в корзину все фигуры цвета НАЗВАНИЕ 
           </h2>
           <p>
-            При помощи нажатия левой кнопки мыши выберите все появления фигур 
-            цвета <span class="color-condition"></span>
+            При помощи нажатия левой кнопки мыши перетащите все фигуры цвета
+            НАЗВАНИЕ в корзину ниже. 
           </p>
+          </p>
+            Если в корзине есть хотя бы одна неправильная фигура, то это 
+            будет считаться за ошибку! 
+          </p>
+        </div>
+        <div class="flexbox-container">
+          <div class="game-wrapper">
+            <div id="third-game"></div>
+            <fieldset id="basket">
+              <legend>Корзина</legend>
+            </fieldset>
+          </div>
+
+          <div class="conditions">
+            <div>
+              <p>
+                Правильный ответ: 
+                +<span class="correct-point"></span> 
+                баллов
+              </p>
+              <p>
+                Неправильный ответ: 
+                <span class="incorrect-point"></span> 
+                балла
+              </p>
+            </div>
+            
+            <p>Результат: <span id="second-counter"></span></p>
+
+            <button id="second-move-in-form" class="move">
+              Следующий уровень
+            </button>
+          </div>
         </div>
       </div>
     </main>
@@ -166,9 +201,5 @@
         </div>
       </div>
     </div>
-
-    <script src="../scripts/popup.js"></script>
-    <script src="../scripts/games.js"></script>
-    <script type="module" src="../scripts/main-script.js"></script>
   </body>
 </html>
