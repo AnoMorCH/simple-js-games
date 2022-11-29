@@ -14,6 +14,7 @@
     <script src="../scripts/popup.js" defer></script>
     <script src="../scripts/games.js" defer></script>
     <script type="module" src="../scripts/main-script.js" defer></script>
+    <script src="../scripts/third-game.js" defer></script>
     <title>Игра</title>
   </head>
   <body>
@@ -151,9 +152,11 @@
         </div>
         <div class="flexbox-container">
           <div class="game-wrapper">
-            <div id="third-game"></div>
+            <div id="third-game" class="playground"></div>
+
             <fieldset id="basket">
               <legend>Корзина</legend>
+              <div class="playground"></div>
             </fieldset>
           </div>
 
@@ -170,11 +173,13 @@
                 балла
               </p>
             </div>
-            
-            <p>Результат: <span id="second-counter"></span></p>
 
-            <button id="second-move-in-form" class="move">
-              Следующий уровень
+            <p>Сколько фигур осталось собрать: 0</p>
+            
+            <p>Результат: <span id="third-counter"></span></p>
+
+            <button id="third-move-in-form" class="move">
+              Закончить игру 
             </button>
           </div>
         </div>

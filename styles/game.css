@@ -70,6 +70,18 @@ main {
   font-size: 1vw;
 }
 
+.ball,
+.rectangle {
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  background-color: black;
+}
+
+.ball {
+  border-radius: 50%;
+}
+
 /* 2. First Game */
 #task1 {
   display: none;
@@ -102,18 +114,6 @@ main {
   display: none;
 }
 
-.ball,
-.rectangle {
-  position: absolute;
-  width: 2vw;
-  height: 2vw;
-  background-color: black;
-}
-
-.ball {
-  border-radius: 50%;
-}
-
 @keyframes bounceX {
   from {
     transform: translateX(0);
@@ -139,6 +139,11 @@ main {
   display: block;
 }
 
+#third-game {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #basket {
   margin-top: 1vw;
   border: 0.25vw solid black;
@@ -152,6 +157,25 @@ main {
   padding-left: 0.5vw;
   margin-left: 0.5vw;
   padding-right: 0.5vw;
+}
+
+#basket > div {
+  display: flex;
+  height: 100%;
+  margin: 0.3vw;
+}
+
+#basket > div > * {
+  margin-left: 0.3vw;
+  margin-right: 0.3vw;
+}
+
+.draggable {
+  cursor: move;
+}
+
+.draggable .dragging {
+  opacity: 0.4;
 }
 
 /* x. Popup */
