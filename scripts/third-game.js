@@ -1,20 +1,32 @@
+const pointsEnlarger = 5;
+const basketCapacity = 2;
+
 const counter = document.getElementById('third-counter');
 let count = 0;
 counter.innerText = count;
 
+const containers = document.querySelectorAll('.playground');
 const playbox = document.getElementById('third-game');
+const basket = document.getElementById('basket-div');
+
+const popupHeader = document.getElementById('popup-header');
+const popupContent = document.getElementById('popup-content')
 
 const figureAmount = 3;
 let figurePositions = [];
 let createdFiguresAmount = 0;
+let hasPopupFailBeenShown = false;
+let hasPopupSuccessBeenShown = false;
 const randomIndexes = getResetedColorsList(figureAmount + 1, colorsDictLength);
+
+let wantedColorId = randomIndexes[1];
+let wantedColorName = null;
 
 createFigureWithRandomPosition('ball', 3);
 createFigureWithRandomPosition('rectangle', 3);
 setResetedColors();
 
 const draggables = document.querySelectorAll('.draggable');
-const containers = document.querySelectorAll('.playground');
 
 draggables.forEach((draggable) => {
     draggable.addEventListener('dragstart', () => {
@@ -23,6 +35,10 @@ draggables.forEach((draggable) => {
 
     draggable.addEventListener('dragend', () => {
         draggable.classList.remove('dragging');
+
+        if (isBasketFull()) {
+            checkBasket();
+        };
     });
 });
 
@@ -40,6 +56,66 @@ containers.forEach((container) => {
         container.appendChild(draggable);
     });
 });
+
+function checkBasket() {
+    let areFiguresCorrect = true;
+
+    Array.from(basket.children).forEach((child) => {
+        const figureColorId = child.getAttribute('value');
+
+        if (figureColorId != wantedColorId) {
+            areFiguresCorrect = false;
+        }
+    });
+
+    if (areFiguresCorrect) {
+        count += pointsEnlarger * pointsForCorrectAnswer;
+
+        if (!hasPopupSuccessBeenShown) {
+            showSuccessPopup();
+            hasPopupSuccessBeenShown = true;
+        }
+    } else {
+        count += pointsEnlarger * pointsForWrongAnswer;
+
+        if (!hasPopupFailBeenShown) {
+            showFailPopup();
+            hasPopupFailBeenShown = true;
+        }
+    }
+
+    counter.innerText = count;
+    movePopup.innerText = 'Закончить игру';
+    popupContent.children[1].innerText = 'Вы можете либо закончить игру, ' +
+        'либо попробовать снова.';
+
+    moveFiguresFromBasketToPlaybox();
+}
+
+function showFailPopup() {
+    popupHeader.innerText = 'Провал!'
+    popupContent.children[0].innerText = 'Вы выбрали неверную пару элементов.';
+    showPopup();
+}
+
+function showSuccessPopup() {
+    popupHeader.innerText = 'Успех!'
+    popupContent.children[0].innerText = 'Вы выбрали правильную пару элементов.';
+    showPopup();
+}
+
+function moveFiguresFromBasketToPlaybox() {
+    const basketChildren = Array.from(basket.children);
+
+    for (let i = 0; i < basketCapacity; i++) {
+        setFigureForPlaybox(basketChildren[i]);
+        playbox.appendChild(basketChildren[i]);
+    }
+}
+
+function isBasketFull() {
+    return basket.children.length == basketCapacity;
+}
 
 function isContainerPlaybox(container) {
     return container.id == 'third-game';
@@ -72,9 +148,9 @@ function setFigurePositions(figure) {
         'margin-top': `${getRandomInt(0, 26)}vw`
     });
 
-    figure.style.marginLeft = 
+    figure.style.marginLeft =
         figurePositions[createdFiguresAmount]['margin-left'];
-    figure.style.marginTop = 
+    figure.style.marginTop =
         figurePositions[createdFiguresAmount]['margin-top'];
 
     createdFiguresAmount += 1;

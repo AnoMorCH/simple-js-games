@@ -159,13 +159,13 @@ main {
   padding-right: 0.5vw;
 }
 
-#basket > div {
+#basket > #basket-div {
   display: flex;
   height: 100%;
   margin: 0.3vw;
 }
 
-#basket > div > * {
+#basket > #basket-div > * {
   margin-left: 0.3vw;
   margin-right: 0.3vw;
 }
