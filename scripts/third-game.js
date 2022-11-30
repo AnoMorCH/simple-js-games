@@ -12,7 +12,7 @@ const basket = document.getElementById('basket-div');
 const popupHeader = document.getElementById('popup-header');
 const popupContent = document.getElementById('popup-content')
 
-const figureAmount = 3;
+const figureAmount = 6;
 let figurePositions = [];
 let createdFiguresAmount = 0;
 let hasPopupFailBeenShown = false;
@@ -26,8 +26,8 @@ updateConiditionColorData();
 const remaniningFigures= document.getElementById('remaining-figures');
 updateConditionRemainingFiguresData();
 
-createFigureWithRandomPosition('ball', 3);
-createFigureWithRandomPosition('rectangle', 3);
+createFigureWithRandomPosition('ball', figureAmount);
+createFigureWithRandomPosition('rectangle', figureAmount);
 setResetedColors();
 
 const draggables = document.querySelectorAll('.draggable');
