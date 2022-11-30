@@ -23,6 +23,9 @@ let wantedColorId = null;
 let wantedColorName = null;
 updateConiditionColorData();
 
+const remaniningFigures= document.getElementById('remaining-figures');
+updateConditionRemainingFiguresData();
+
 createFigureWithRandomPosition('ball', 3);
 createFigureWithRandomPosition('rectangle', 3);
 setResetedColors();
@@ -40,6 +43,8 @@ draggables.forEach((draggable) => {
         if (isBasketFull()) {
             checkBasket();
         };
+        
+        updateConditionRemainingFiguresData();
     });
 });
 
@@ -57,6 +62,14 @@ containers.forEach((container) => {
         container.appendChild(draggable);
     });
 });
+
+function updateConditionRemainingFiguresData() {
+    remaniningFigures.innerText = getRemainingFiguresAmount();
+}
+
+function getRemainingFiguresAmount() {
+    return basketCapacity - basket.children.length;
+}
 
 function updateConiditionColorData() {
     wantedColorId = getRandomColorId();
