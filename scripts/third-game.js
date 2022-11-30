@@ -19,8 +19,9 @@ let hasPopupFailBeenShown = false;
 let hasPopupSuccessBeenShown = false;
 const randomIndexes = getResetedColorsList(figureAmount + 1, colorsDictLength);
 
-let wantedColorId = randomIndexes[1];
+let wantedColorId = null;
 let wantedColorName = null;
+updateConiditionColorData();
 
 createFigureWithRandomPosition('ball', 3);
 createFigureWithRandomPosition('rectangle', 3);
@@ -57,6 +58,23 @@ containers.forEach((container) => {
     });
 });
 
+function updateConiditionColorData() {
+    wantedColorId = getRandomColorId();
+    wantedColorName = Object.keys(colorsDict)[wantedColorId];
+
+    const conditionColor =
+        document.getElementsByClassName('third-game-color-condition');
+
+    Array.from(conditionColor).forEach((condition) => {
+        condition.innerText = wantedColorName;
+    });
+}
+
+function getRandomColorId() {
+    return randomIndexes[getRandomInt(1, figureAmount + 1)];
+    // As the zero element is always for playbox background.
+}
+
 function checkBasket() {
     let areFiguresCorrect = true;
 
@@ -90,6 +108,7 @@ function checkBasket() {
         'либо попробовать снова.';
 
     moveFiguresFromBasketToPlaybox();
+    updateConiditionColorData();
 }
 
 function showFailPopup() {

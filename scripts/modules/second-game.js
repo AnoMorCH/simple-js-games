@@ -11,7 +11,8 @@ function secondGame() {
     );
 
     const playbox = document.getElementById('second-game');
-    const conditionColor = document.getElementsByClassName('color-condition');
+    const conditionColor = 
+        document.getElementsByClassName('second-game-color-condition');
 
     let usedColorsAmount = 0;
     let wantedColorId = null;
