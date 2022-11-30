@@ -1,3 +1,5 @@
+let globalCount = 0; 
+
 const pointsForCorrectAnswer = 5;
 const pointsForWrongAnswer = -2;
 

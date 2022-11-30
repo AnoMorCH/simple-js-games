@@ -20,6 +20,7 @@ function firstGame() {
             if (choice.checked) {
                 if (isAnswerCorrect(choice)) {
                     count += pointsForCorrectAnswer;
+                    globalCount += pointsForCorrectAnswer;
 
                     if (
                         isScoreEnoughToShowPopup(count, 15) &&
@@ -32,6 +33,7 @@ function firstGame() {
                     }
                 } else {
                     count += pointsForWrongAnswer;
+                    globalCount += pointsForCorrectAnswer;
                 }
 
                 counter.innerText = count;

@@ -11,10 +11,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../styles/game.css" />
-    <script src="../scripts/popup.js" defer></script>
     <script src="../scripts/games.js" defer></script>
     <script type="module" src="../scripts/main-script.js" defer></script>
-    <script src="../scripts/third-game.js" defer></script>
+    <script src="../scripts/popup.js" defer></script>
+    <script src="../scripts/results.js" defer></script>
     <title>Игра</title>
   </head>
   <body>
@@ -194,7 +194,7 @@
           <h2>Рейтинг</h2>
 
           <ol>
-            <li>Фудзимото</li>
+            <li>Фудзимото - <span id="result-1"></span></li>
             <li>Ямамото</li>
             <li>Химено</li>
           </ol>
@@ -203,7 +203,7 @@
         </div>
       </div>
     </main>
-
+    
     <div id="popup1" class="overlay overlay-hidden">
       <div class="popup">
         <h2 id="popup-header">Поздравляем!</h2>

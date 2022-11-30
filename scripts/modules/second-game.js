@@ -11,7 +11,7 @@ function secondGame() {
     );
 
     const playbox = document.getElementById('second-game');
-    const conditionColor = 
+    const conditionColor =
         document.getElementsByClassName('second-game-color-condition');
 
     let usedColorsAmount = 0;
@@ -43,6 +43,7 @@ function secondGame() {
 
         if (figureColorId == wantedColorId) {
             count += pointsForCorrectAnswer;
+            globalCount += pointsForCorrectAnswer;
             counter.innerText = count;
             foundFiguresAmount += 1;
             choosenFigure.style.display = 'none';
@@ -63,6 +64,7 @@ function secondGame() {
             }
         } else {
             count += pointsForWrongAnswer;
+            globalCount += pointsForWrongAnswer;
             counter.innerText = count;
         }
 
