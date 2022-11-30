@@ -90,7 +90,7 @@ main {
 
 /* 2. First Game */
 #task1 {
-  display: block;
+  display: none;
 }
 
 #first-game-word {
@@ -142,7 +142,7 @@ main {
 
 /* 4. Third Game */
 #task3 {
-  display: none;
+  display: block;
 }
 
 #third-game {
