@@ -15,6 +15,7 @@ const popupContent = document.getElementById('popup-content')
 const figureAmount = 6;
 let figurePositions = [];
 let createdFiguresAmount = 0;
+let hasEndGameBtnBeenShown = false;
 let hasPopupFailBeenShown = false;
 let hasPopupSuccessBeenShown = false;
 const randomIndexes = getResetedColorsList(figureAmount + 1, colorsDictLength);
@@ -23,7 +24,7 @@ let wantedColorId = null;
 let wantedColorName = null;
 updateConiditionColorData();
 
-const remaniningFigures= document.getElementById('remaining-figures');
+const remaniningFigures = document.getElementById('remaining-figures');
 updateConditionRemainingFiguresData();
 
 createFigureWithRandomPosition('ball', figureAmount);
@@ -42,8 +43,14 @@ draggables.forEach((draggable) => {
 
         if (isBasketFull()) {
             checkBasket();
+
+            if (!hasEndGameBtnBeenShown) {
+                showNextButton('third-move-in-form')
+                setupMoveBtn(4);
+                hasEndGameBtnBeenShown = true;
+            }
         };
-        
+
         updateConditionRemainingFiguresData();
     });
 });

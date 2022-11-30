@@ -1,6 +1,9 @@
 /* 1. General */
 /* 2. First Game */
-/* x. Popup */
+/* 3. Second Game */
+/* 4. Third Game */
+/* 5. Results Game */
+/* 6. Popup */
 
 /* 1. General */
 * {
@@ -19,7 +22,8 @@ main {
   margin-right: auto;
 }
 
-.task {
+.task,
+.rating {
   width: 80vw;
 }
 
@@ -55,8 +59,10 @@ main {
   font-weight: bolder;
 }
 
+/* TODO. Make it as the one class */
 #first-move-in-form,
-#second-move-in-form {
+#second-move-in-form,
+#third-move-in-form {
   display: none;
 }
 
@@ -176,6 +182,11 @@ main {
 
 .draggable .dragging {
   opacity: 0.4;
+}
+
+/* 5. Results */
+#task4 {
+  display: none;
 }
 
 /* x. Popup */
