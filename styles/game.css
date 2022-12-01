@@ -104,7 +104,7 @@ th, td {
 
 /* 2. First Game */
 #task1 {
-  display: none;
+  display: block;
 }
 
 #first-game-word {
@@ -156,7 +156,7 @@ th, td {
 
 /* 4. Third Game */
 #task3 {
-  display: block;
+  display: none;
 }
 
 #third-game {
