@@ -1,53 +1,70 @@
 let localStorageObject = Object.entries(localStorage);
 
-let currentUser = null;
-let currentUserId = -1;
-updateCurrentUserAndHisId();
-
-const userName = currentUser[0];
-const userPassword = currentUser[1];
-
 const finishGameBtn = document.getElementById('third-move-in-form');
 const ratingPlaceholder = document.getElementById('rating-placeholder');
 
+let currentUser = getCurrentUser();
+const userName = currentUser[0];
+const userData = JSON.parse(currentUser[1]);
+
 finishGameBtn.addEventListener('click', () => {
-    parseLocalStorage();
+    addScoreToCurrentUser();
     addUsersToPlaceholder();
+    logOut();
 });
 
-function updateCurrentUserAndHisId() {
-    while (
-        currentUser == null &&
-        currentUserId < localStorageObject.length - 1
-    ) {
-        currentUserId += 1;
-
-        try {
-            JSON.parse(userData);
-        } catch {
-            currentUser = localStorageObject[currentUserId];
+function getCurrentUser() {
+    for (let i = 0; i < localStorageObject.length; i++) {
+        const userData = JSON.parse(localStorageObject[i][1]);
+        
+        if (userData['authorized'] == true) {
+            return localStorageObject[i];
         }
     }
+    // for (let i = 0; i < localStorageObject.length; i++) {
+    //     try {
+    //         JSON.parse(localStorageObject[i][1]);
+    //     } catch {
+    //         const currentUser = localStorageObject[i];
+    //         return currentUser;
+    //     }
+    // }
 }
 
-function parseLocalStorage() {
-    const userData = {
-        'password': userPassword,
-        'score': globalCount
-    }
+function logOut() {
+    localStorage.removeItem(currentUser[userName]);
+    userData['authorized'] = false;
+    localStorage.setItem(userName, JSON.stringify(userData));
+}
 
-    const jsonUserData = JSON.stringify(userData);
+function addScoreToCurrentUser() {
+    // const userData = {
+    //     'password': userPassword,
+    //     'score': globalCount
+    // }
 
+    // const jsonUserData = JSON.stringify(userData);
+
+    userData['score'] = globalCount;
     localStorage.removeItem(userName);
-    localStorage.setItem(userName, jsonUserData);
+    localStorage.setItem(userName, JSON.stringify(userData));
     localStorageObject = Object.entries(localStorage);
 }
 
 function addUsersToPlaceholder() {
     for (const [userName, userData] of localStorageObject) {
-        const li = document.createElement('li');
         const userScore = JSON.parse(userData)['score'];
-        li.innerHTML = `${userName} - ${userScore}`;
-        ratingPlaceholder.appendChild(li);
+
+        const tr = document.createElement('tr');
+
+        const tdName = document.createElement('td');
+        tdName.innerText = userName;
+
+        const tdScore = document.createElement('td');
+        tdScore.innerText = userScore;
+
+        tr.appendChild(tdName);
+        tr.appendChild(tdScore);
+        ratingPlaceholder.append(tr);
     }
 }

@@ -88,6 +88,20 @@ main {
   border-radius: 50%;
 }
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, td, th {
+  border: 1px solid black;
+}
+
+th, td {
+  padding: 0.25rem;
+  text-align: center;
+}
+
 /* 2. First Game */
 #task1 {
   display: none;
@@ -186,7 +200,27 @@ main {
 
 /* 5. Results */
 #task4 {
+  width: 30vw;
   display: none;
+}
+
+#task4 > ol,
+#task4 > p {
+  font-size: 1.25rem;
+}
+
+#task4 > p,
+#rating-description {
+  text-align: center;
+}
+
+#rating-description {
+  font-size: 1.5rem;
+}
+
+#rating-placeholder {
+  margin-top: 2vw;
+  margin-bottom: 2vw;
 }
 
 /* x. Popup */
