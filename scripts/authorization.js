@@ -16,29 +16,23 @@ form.addEventListener('submit', (e) => {
             'authorized': true
         }
 
-        localStorage.setItem(`${username.value}`, `${JSON.stringify(userDataParsed)}`);
+        localStorage.setItem(
+            `${username.value}`,
+            `${JSON.stringify(userDataParsed)}`
+        );
     } else {
         if (userDataParsed['password'] == passwordElement.value) {
             localStorage.removeItem(`${username.value}`);
             userDataParsed['authorized'] = true;
-            localStorage.setItem(`${username.value}`, `${JSON.stringify(userDataParsed)}`);
+            localStorage.setItem(
+                `${username.value}`,
+                `${JSON.stringify(userDataParsed)}`
+            );
         } else {
             e.preventDefault();
-            errorElement.innerHTML = 
+            errorElement.innerHTML =
                 '<span style="font-weight: bold;">Ошибка!</span>' +
                 '<br> Неверный пароль';
         }
     }
-
-    // if (localStorage.getItem(username.value) == passwordElement.value) {
-    //     window.location.href = pathIfRequestIsSuccessful;
-    // } else if (localStorage.getItem(username.value) == null) {
-    //     localStorage.setItem(`${username.value}`, `${passwordElement.value}`);
-    //     window.location.href = pathIfRequestIsSuccessful;
-    // } else {
-    //     e.preventDefault();
-    //     errorElement.innerHTML = 
-    //         '<span style="font-weight: bold;">Ошибка!</span>' +
-    //         '<br> Неверный пароль';
-    // }
 });

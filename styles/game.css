@@ -49,20 +49,14 @@ main {
   justify-content: space-around;
 }
 
-/* TODO. Make it as the one class */
-#first-game,
-#second-game,
-#third-game {
+.game-main {
   width: 28vw;
   height: 28vw;
   font-size: 3vw;
   font-weight: bolder;
 }
 
-/* TODO. Make it as the one class */
-#first-move-in-form,
-#second-move-in-form,
-#third-move-in-form {
+.move {
   display: none;
 }
 

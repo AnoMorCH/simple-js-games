@@ -14,7 +14,6 @@
     <script src="../scripts/games.js" defer></script>
     <script type="module" src="../scripts/main-script.js" defer></script>
     <script src="../scripts/popup.js" defer></script>
-    <script src="../scripts/check.js" defer></script>
     <title>Игра</title>
   </head>
   <body>
@@ -27,7 +26,7 @@
 
         <div class="flexbox-container">
           <div class="game-wrapper">
-            <div id="first-game">
+            <div class="game-main" id="first-game">
               <div id="first-game-word"></div>
             </div>
           </div>
@@ -110,7 +109,7 @@
 
         <div class="flexbox-container">
           <div class="game-wrapper">
-            <div id="second-game"></div>
+            <div class="game-main"  id="second-game"></div>
           </div>
 
           <div class="conditions">
@@ -153,7 +152,7 @@
         </div>
         <div class="flexbox-container">
           <div class="game-wrapper">
-            <div id="third-game" class="playground"></div>
+            <div id="third-game" class="playground game-main"></div>
 
             <fieldset id="basket">
               <legend>Корзина</legend>
