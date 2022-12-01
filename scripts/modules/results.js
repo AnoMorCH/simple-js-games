@@ -22,14 +22,6 @@ function results() {
                 return localStorageObject[i];
             }
         }
-        // for (let i = 0; i < localStorageObject.length; i++) {
-        //     try {
-        //         JSON.parse(localStorageObject[i][1]);
-        //     } catch {
-        //         const currentUser = localStorageObject[i];
-        //         return currentUser;
-        //     }
-        // }
     }
 
     function logOut() {
@@ -39,13 +31,6 @@ function results() {
     }
 
     function addScoreToCurrentUser() {
-        // const userData = {
-        //     'password': userPassword,
-        //     'score': globalCount
-        // }
-
-        // const jsonUserData = JSON.stringify(userData);
-
         userData['score'] = globalCount;
         localStorage.removeItem(userName);
         localStorage.setItem(userName, JSON.stringify(userData));
@@ -53,6 +38,12 @@ function results() {
     }
 
     function addUsersToPlaceholder() {
+        localStorageObject = localStorageObject.sort((a, b) => {
+            a = JSON.parse(a[1])['score'];
+            b = JSON.parse(b[1])['score'];
+            return b - a;
+        });
+
         for (const [userName, userData] of localStorageObject) {
             const userScore = JSON.parse(userData)['score'];
 
