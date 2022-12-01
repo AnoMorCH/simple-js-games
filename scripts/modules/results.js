@@ -1,18 +1,34 @@
 function results() {
     let localStorageObject = Object.entries(localStorage);
 
-    const finishGameBtn = document.getElementById('third-move-in-form');
+    let finishGameBtns = [document.getElementById('third-move-in-form')];
+    finishGameBtns.push(...Array.from(document.querySelectorAll('.finish-game')));
+
     const ratingPlaceholder = document.getElementById('rating-placeholder');
 
     let currentUser = getCurrentUser();
     const userName = currentUser[0];
     const userData = JSON.parse(currentUser[1]);
 
-    finishGameBtn.addEventListener('click', () => {
-        addScoreToCurrentUser();
-        addUsersToPlaceholder();
-        logOut();
+    finishGameBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            addScoreToCurrentUser();
+            addUsersToPlaceholder();
+            goToResultPage();
+            logOut();
+        });
     });
+
+    function goToResultPage() {
+        const miniGames = Array.from(document.getElementsByClassName('task'));
+        
+        miniGames.forEach((game) => {
+            game.style.display = 'none';
+        });
+
+        const result = document.getElementById('task4');
+        result.style.display = 'block';
+    }
 
     function getCurrentUser() {
         for (let i = 0; i < localStorageObject.length; i++) {

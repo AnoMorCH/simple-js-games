@@ -49,7 +49,9 @@ function setupMoveBtn(nextTaskNumber) {
 }
 
 function setupMoveFormsBtn() {
-    const moveBtnsForm = document.getElementsByClassName('move');
+    let moveBtnsForm = document.getElementsByClassName('move-hidden');
+    moveBtnsForm = Array.from(moveBtnsForm);
+    moveBtnsForm.push(document.getElementById('third-move-in-form'));
 
     for (let i = 0; i < moveBtnsForm.length; i++) {
         moveBtnsForm[i].addEventListener('click', () => {

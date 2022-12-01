@@ -33,7 +33,7 @@ function firstGame() {
                     }
                 } else {
                     count += pointsForWrongAnswer;
-                    globalCount += pointsForCorrectAnswer;
+                    globalCount += pointsForWrongAnswer;
                 }
 
                 counter.innerText = count;
